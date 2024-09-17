@@ -1,0 +1,29 @@
+{% extends "base.html" %}
+
+{% block content %}
+    <h1>Update Your Profile</h1>
+    <form method="POST" action="{{ url_for('main.update_profile') }}">
+        {{ form.hidden_tag() }}
+        
+        <div>
+            <label for="name">Name</label>
+            {{ form.name(class="form-control") }}
+        </div>
+
+        <div>
+            <label for="username">Experience</label>
+            {{ form.username(class="form-control") }}
+        </div>
+        <div>
+            <label for="user_preferences">Movie Preferences</label>
+            {{ form.user_preferences(class="form-control") }}
+        </div>
+        <div>
+            <label for="movies_watched">Movies Watced</label>
+            {{ form.movies_watched(class="form-control") }}
+        </div>
+        <div>
+            {{ form.submit(class="btn btn-primary") }}
+        </div>
+    </form>
+{% endblock %}
