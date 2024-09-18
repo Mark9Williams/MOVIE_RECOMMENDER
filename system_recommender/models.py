@@ -6,6 +6,7 @@ from flask_sqlalchemy import SQLAlchemy
 from datetime import datetime
 from flask_login import UserMixin
 
+# Define the User and Profile models
 class User(UserMixin, db.Model):
     __tablename__ = 'user'
     id = db.Column(db.Integer, primary_key=True)  # Primary Key
@@ -31,7 +32,7 @@ class Profile(db.Model):
     # Relationship back to the User
     user = db.relationship('User', back_populates='profile')  # One-to-One
 
-    def last_seen(self):
-        self.last_seen = datetime.now()
-        db.session.add(self)
-        db.session.commit()
+    # def last_seen(self):
+    #     self.last_seen = datetime.now()
+    #     db.session.add(self)
+    #     db.session.commit()
