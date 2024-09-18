@@ -1,6 +1,4 @@
-{% extends "base.html" %}
-
-{% block content %}
+<!-- 
     <h1>Update Your Profile</h1>
     <form method="POST" action="{{ url_for('main.update_profile') }}">
         {{ form.hidden_tag() }}
@@ -25,5 +23,62 @@
         <div>
             {{ form.submit(class="btn btn-primary") }}
         </div>
-    </form>
+    </form>-->
+
+    {% extends "base.html" %}
+
+{% block content %}
+<div class="container mt-5 p-4" style="background-color: #343a40; border-radius: 10px;">
+  <h1 class="text-light mb-4">Update Your Profile</h1>
+
+  <!-- Update Profile Form Card -->
+  <div class="card shadow-lg p-4 mb-5" style="background-color: #f7e4b5; border-radius: 15px;">
+    <div class="card-body">
+      <form method="POST" action="{{ url_for('main.update_profile') }}">
+        {{ form.hidden_tag() }}
+
+        <div class="row g-4">
+          <!-- Left Column -->
+          <div class="col-md-6">
+            <div class="card mb-3 border-0 shadow-sm" style="background-color: #ffeebb;">
+              <div class="card-body">
+                <label for="name" class="form-label text-uppercase text-muted">Name</label>
+                {{ form.name(class="form-control") }}
+              </div>
+            </div>
+
+            <div class="card mb-3 border-0 shadow-sm" style="background-color: #ffeebb;">
+              <div class="card-body">
+                <label for="user_preferences" class="form-label text-uppercase text-muted">Movie Preferences</label>
+                {{ form.user_preferences(class="form-control") }}
+              </div>
+            </div>
+          </div>
+
+          <!-- Right Column -->
+          <div class="col-md-6">
+            <div class="card mb-3 border-0 shadow-sm" style="background-color: #ffeebb;">
+              <div class="card-body">
+                <label for="username" class="form-label text-uppercase text-muted">Experience</label>
+                {{ form.username(class="form-control") }}
+              </div>
+            </div>
+
+            <div class="card mb-3 border-0 shadow-sm" style="background-color: #ffeebb;">
+              <div class="card-body">
+                <label for="movies_watched" class="form-label text-uppercase text-muted">Movies Watched</label>
+                {{ form.movies_watched(class="form-control") }}
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Submit Button -->
+        <div class="d-flex justify-content-center mt-4">
+          {{ form.submit(class="btn btn-primary px-5") }}
+        </div>
+      </form>
+    </div>
+  </div>
+</div>
 {% endblock %}

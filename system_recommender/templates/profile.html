@@ -1,35 +1,139 @@
-{% extends "base.html" %}
-
-{% block content %}
+<!-- 
 <h1>User Profile</h1>
 <h2 class="title">
   Welcome, {{ name }}!
 </h2>
 <br/><br/>
-<div class="card">
-  <div class="card-header">
-    {{ current_user.name }}
+<div class="container card-wrapper d-flex">
+  <div class="card">
+    <div class="card-body">
+      <div class="row g-3">
+      <div class="col-6">
+      <div class="card">
+        <div class="card-body">
+          <strong>Name:</strong>
+          {{ current_user.name}}<br/>
+        </div>
+      </div>
+      <div class="card">
+        <div class="card-body">
+          <strong>Username:</strong>
+        {{ current_user.username}}<br/>
+        </div>
+      </div>
+      <div class="card">
+        <div class="card-body">
+          <strong>Email:</strong>
+          {{ current_user.email}}<br/>
+        </div>
+      </div>
+      <div class="card">
+        <div class="card-body">
+          <strong>Movie Preferences:</strong>
+          {{ current_user.profile.user_preferences }}<br/>
+        </div>
+      </div>
+      </div>
+      <div class="col-6">
+
+      <div class="card">
+        <div class="card-body">
+          <strong>Watch History:</strong>
+          {{ current_user.profile.movies_watched }}<br/>
+        </div>
+      </div>
+      <div class="card">
+        <div class="card-body">
+          <strong>Last Updated:</strong>
+          {{ current_user.profile.updated_at }}<br/>
+        </div>
+      </div>
+      <div class="card">
+        <div class="card-body">
+          <strong>Created at:</strong>
+          {{ current_user.date_added}}<br/>
+        </div>
+      </div>
+      </div>
+    </div>
   </div>
-  <div class="card-body">
-    <h5 class="card-title">Welcome to User Profile!!</h5>
-    <p class="card-text">
-      <strong>Name:</strong>
-      {{ current_user.name}}<br/>
-      <strong>Username:</strong>
-      {{ current_user.username}}<br/>
-      <strong>Email:</strong>
-      {{ current_user.email}}<br/>
-      <strong>Movie Preferences:</strong>
-      {{ current_user.profile.user_preferences}}<br/>
-      <strong>Watch History:</strong>
-      {{ current_user.profile.movies_watched}}<br/>
-      <strong>Last Updated:</strong>
-      {{ current_user.profile.updated_at}}<br/>
-      <strong>Created at:</strong>
-      {{ current_user.date_added}}<br/>
-    </p>
+  
     <a href="{{ url_for('main.update_profile') }}" class="btn btn-primary">Update Profile</a>
   </div>
-</div>
+</div> -->
 
+{% extends "base.html" %}
+
+{% block content %}
+<div class="container mt-5 p-4" style="background-color: #343a40; border-radius: 10px;">
+  <!-- <h1 class="text-light mb-4">User Profile</h1> -->
+  <h2 class="title text-muted mb-4">Welcome, {{ name }}!</h2>
+
+  <!-- Profile Card Container -->
+  <div class="card shadow-lg p-4 mb-5" style="background-color: #f7e4b5; border-radius: 15px;">
+    <div class="card-body">
+      <div class="row g-4">
+        <!-- Left Column -->
+        <div class="col-md-6">
+          <div class="card mb-3 border-0 shadow-sm" style="background-color: #ffeebb;">
+            <div class="card-body">
+              <h6 class="card-title text-uppercase text-muted">Name</h6>
+              <p class="card-text">{{ current_user.name }}</p>
+            </div>
+          </div>
+
+          <div class="card mb-3 border-0 shadow-sm" style="background-color: #ffeebb;">
+            <div class="card-body">
+              <h6 class="card-title text-uppercase text-muted">Username</h6>
+              <p class="card-text">{{ current_user.username }}</p>
+            </div>
+          </div>
+
+          <div class="card mb-3 border-0 shadow-sm" style="background-color: #ffeebb;">
+            <div class="card-body">
+              <h6 class="card-title text-uppercase text-muted">Email</h6>
+              <p class="card-text">{{ current_user.email }}</p>
+            </div>
+          </div>
+
+          <div class="card mb-3 border-0 shadow-sm" style="background-color: #ffeebb;">
+            <div class="card-body">
+              <h6 class="card-title text-uppercase text-muted">Movie Preferences</h6>
+              <p class="card-text">{{ current_user.profile.user_preferences }}</p>
+            </div>
+          </div>
+        </div>
+
+        <!-- Right Column -->
+        <div class="col-md-6">
+          <div class="card mb-3 border-0 shadow-sm" style="background-color: #ffeebb;">
+            <div class="card-body">
+              <h6 class="card-title text-uppercase text-muted">Watch History</h6>
+              <p class="card-text">{{ current_user.profile.movies_watched }}</p>
+            </div>
+          </div>
+
+          <div class="card mb-3 border-0 shadow-sm" style="background-color: #ffeebb;">
+            <div class="card-body">
+              <h6 class="card-title text-uppercase text-muted">Last Updated</h6>
+              <p class="card-text">{{ current_user.profile.updated_at }}</p>
+            </div>
+          </div>
+
+          <div class="card mb-3 border-0 shadow-sm" style="background-color: #ffeebb;">
+            <div class="card-body">
+              <h6 class="card-title text-uppercase text-muted">Created At</h6>
+              <p class="card-text">{{ current_user.date_added }}</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Update Profile Button -->
+    <div class="d-flex justify-content-center mt-4">
+      <a href="{{ url_for('main.update_profile') }}" class="btn btn-primary px-5">Update Profile</a>
+    </div>
+  </div>
+</div>
 {% endblock %}

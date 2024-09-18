@@ -1,0 +1,6 @@
+/* .custom-hero {
+  background-color: #f7e4b5;
+} */
+.hero.is-primary {
+  background: #08121b; /* Replace with your dark color */
+}
