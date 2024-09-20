@@ -26,7 +26,7 @@ def login_post():
     
     # if the above check passes, then we know the user is in database
     login_user(user, remember=remember)
-    return redirect(url_for('main.profile'))
+    return redirect(url_for('main.home'))
 
 @auth.route('/signup')
 def signup():
