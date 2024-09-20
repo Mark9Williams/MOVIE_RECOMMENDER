@@ -1,31 +1,4 @@
-<!-- 
-    <h1>Update Your Profile</h1>
-    <form method="POST" action="{{ url_for('main.update_profile') }}">
-        {{ form.hidden_tag() }}
-        
-        <div>
-            <label for="name">Name</label>
-            {{ form.name(class="form-control") }}
-        </div>
-
-        <div>
-            <label for="username">Experience</label>
-            {{ form.username(class="form-control") }}
-        </div>
-        <div>
-            <label for="user_preferences">Movie Preferences</label>
-            {{ form.user_preferences(class="form-control") }}
-        </div>
-        <div>
-            <label for="movies_watched">Movies Watced</label>
-            {{ form.movies_watched(class="form-control") }}
-        </div>
-        <div>
-            {{ form.submit(class="btn btn-primary") }}
-        </div>
-    </form>-->
-
-    {% extends "base.html" %}
+{% extends "base.html" %}
 
 {% block content %}
 <div class="container mt-5 p-4" style="background-color: #343a40; border-radius: 10px;">
@@ -59,7 +32,7 @@
           <div class="col-md-6">
             <div class="card mb-3 border-0 shadow-sm" style="background-color: #ffeebb;">
               <div class="card-body">
-                <label for="username" class="form-label text-uppercase text-muted">Experience</label>
+                <label for="username" class="form-label text-uppercase text-muted">Username</label>
                 {{ form.username(class="form-control") }}
               </div>
             </div>
